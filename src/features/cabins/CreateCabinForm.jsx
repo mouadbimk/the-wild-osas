@@ -1,17 +1,17 @@
-import styled from "styled-components";
-
 import Input from "../../ui/Input";
 import Form from "../../ui/Form";
 import Button from "../../ui/Button";
 import FileInput from "../../ui/FileInput";
+import toast from "react-hot-toast";
+import FormRow from "../../ui/FormRow";
+
 import { Textarea } from "./../../ui/Textarea";
 import { useForm } from "react-hook-form";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { createCabin } from "../../services/apiCabins";
-import toast from "react-hot-toast";
-import FormRow from "../../ui/FormRow";
 
-function CreateCabinForm() {
+function CreateCabinForm({ cabitToEdit = {} }) {
+  const { id: editID, ...editValue } = cabitToEdit;
   const queryClient = useQueryClient();
   const { register, handleSubmit, reset, getValues, formState } = useForm();
   const { mutate, isLoading: isCreating } = useMutation({
