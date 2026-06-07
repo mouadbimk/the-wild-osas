@@ -3,6 +3,7 @@ import Dashboard from "./pages/Dashboard";
 import Account from "./pages/Account";
 import Cabins from "./pages/Cabins";
 import Login from "./pages/Login";
+import LoaderPwa from "./pages/LoaderPwa";
 import PageNotFound from "./pages/PageNotFound";
 import Settings from "./pages/Settings";
 import Users from "./pages/Users";
@@ -36,6 +37,7 @@ function App() {
           </Route>
           <Route path="login" element={<Login />} />
           <Route path="*" element={<PageNotFound />} />
+          <Route path="loader" element={<LoaderPwa />} />
         </Routes>
       </BrowserRouter>
       <Toaster
